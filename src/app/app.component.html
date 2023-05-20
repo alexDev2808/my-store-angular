@@ -2,4 +2,4 @@
 <p><input type="text" [(ngModel)]="imgParent"></p>
 <app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
 
-
+<app-product *ngFor="let producto of products" [product]="producto"></app-product>
