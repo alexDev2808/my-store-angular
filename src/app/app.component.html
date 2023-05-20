@@ -1,5 +1,9 @@
 <!-- Pasar valores del padre al hijo (data flow)-->
 <p><input type="text" [(ngModel)]="imgParent"></p>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+<button (click)="toggleImg()">Toggle img</button>
+<p>{{ showImg }}</p>
+<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+
+<hr>
 
 <app-product *ngFor="let producto of products" [product]="producto"></app-product>
