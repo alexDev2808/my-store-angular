@@ -1,22 +1,52 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss']
 })
-export class ImgComponent  implements OnInit{
+export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestroy{
 
   @Input() img: string = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg';
 
-  constructor() {}
+  // antes del render
+  // no correr cosas de forma asincrona
+  // solo se crea una vez
+  constructor() {
 
-  ngOnInit(): void {
+    console.log('constructor', 'imgValue => ', this.img);
 
   }
 
+  ngOnChanges() {
+
+    // before - during render
+    // evaluando cambios en los inputs, las veces que se actualice el valor
+    console.log('cngOnChanges', 'imgValue => ', this.img);
+
+  }
+  ngOnInit(): void {
+    // before render
+    // correr cosas asincronas async - fetch
+    // corre solo una vez
+    console.log('cngOnInit', 'imgValue => ', this.img);
+
+  }
+
+  ngAfterViewInit(): void {
+    // after render
+    // trabajar con componentes hijos
+    console.log('ngAfterViewInit');
+
+  }
+
+  ngOnDestroy(): void {
+    // delete
+    console.log('ngOnDestroy');
+
+  }
   imgError() {
     this.img = this.imageDefault;
   }
