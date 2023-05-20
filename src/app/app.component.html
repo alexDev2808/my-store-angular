@@ -1,5 +1,5 @@
 <!-- Pasar valores del padre al hijo (data flow)-->
 <p><input type="text" [(ngModel)]="imgParent"></p>
-<app-img [img]="imgParent"></app-img>
+<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
 
 
