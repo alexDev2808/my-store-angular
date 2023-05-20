@@ -1,0 +1,4 @@
+<img width="200" [src]="img" *ngIf="img; else elseImg" [alt]="img">
+<ng-template #elseImg>
+  <img src="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg" width="200" alt="Imagen por default">
+</ng-template>
