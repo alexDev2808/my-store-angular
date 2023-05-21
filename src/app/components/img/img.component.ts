@@ -19,8 +19,8 @@ export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestro
 
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg';
-  counter = 0;
-  counterFn: number | undefined;
+  // counter = 0;
+  // counterFn: number | undefined;
 
   // antes del render
   // no correr cosas de forma asincrona
@@ -36,7 +36,7 @@ export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestro
     // before - during render
     // evaluando cambios en los inputs, las veces que se actualice el valor
     console.log('cngOnChanges', 'imgValue => ', this.img);
-    console.log('changes', changes);
+    // console.log('changes', changes);
 
 
 
@@ -46,11 +46,11 @@ export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestro
     // correr cosas asincronas async - fetch
     // corre solo una vez
     console.log('cngOnInit', 'imgValue => ', this.img);
-    this.counterFn = window.setInterval(() => {
-      this.counter += 1;
-      console.log('run counter');
+    // this.counterFn = window.setInterval(() => {
+    //   this.counter += 1;
+    //   console.log('run counter');
 
-    }, 1000);
+    // }, 1000);
 
   }
 
@@ -64,7 +64,7 @@ export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestro
   ngOnDestroy(): void {
     // delete
     console.log('ngOnDestroy');
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
 
   }
   imgError() {
