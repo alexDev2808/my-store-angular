@@ -15,6 +15,9 @@ export class ProductsComponent {
 
   products: Product[] = [];
 
+  today = new Date();
+  day = new Date(2021, 1, 21);
+
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService
