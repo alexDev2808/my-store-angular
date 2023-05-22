@@ -16,8 +16,10 @@
 </div>
 
 <div class="product-detail" [class.active]="showProductDetail">
-  <div>
+  <div *ngIf="productChosen">
     <button (click)="toggleProductDetail()">Close</button>
-    contenido
+    <h2>{{ productChosen.title }}</h2>
+    <img src="{{ productChosen.images[0] }}" alt="Imagen producto">
+    <p>{{ productChosen.description }}</p>
   </div>
 </div>
