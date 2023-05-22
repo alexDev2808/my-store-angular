@@ -14,6 +14,7 @@ export class ProductsComponent {
   total = 0;
 
   products: Product[] = [];
+  showProductDetail = false;
 
   today = new Date();
   day = new Date(2021, 1, 21);
@@ -36,5 +37,17 @@ export class ProductsComponent {
   onAddToShoppingCart(product: Product) {
     this.storeService.addProduct(product);
     this.total = this.storeService.getTotal();
+  }
+
+  toggleProductDetail() {
+    this.showProductDetail = !this.showProductDetail;
+  }
+
+  onShowDetail(id: string) {
+    this.productsService.getProduct(id)
+    .subscribe(data => {
+      console.log('product', data);
+
+    })
   }
 }
