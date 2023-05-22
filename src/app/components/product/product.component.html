@@ -3,5 +3,6 @@
   <app-img [img]="product.image"></app-img>
   <h2>{{ product.price | currency:'MXN' }}</h2>
   <p>{{ product.title }}</p>
+  <p>{{ 'No esperes mas, compralo ahora!' | reverse }}</p>
   <button (click)="onAddToCart()">Agregar al carrito</button>
 </div>
