@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -9,11 +10,15 @@ export class StoreService {
 
 
   private myShoppingCart: Product[] = [];
+  private myCart = new BehaviorSubject<Product[]>([]);
 
-  constructor() { }
+  myCart$ = this.myCart.asObservable();
+
 
   addProduct(product: Product) {
     this.myShoppingCart.push(product);
+    this.myCart.next(this.myShoppingCart);
+
   }
 
   getShoppingCart() {

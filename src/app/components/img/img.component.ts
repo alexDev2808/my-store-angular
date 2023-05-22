@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-img',
@@ -7,15 +7,16 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 })
 export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestroy{
 
-  img: string = '';
+  img = '';
 
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
     console.log('change just img => ', this.img);
 
   }
-  @Input() alt: string = '';
+  @Input() alt = '';
 
   @Output() loaded = new EventEmitter<string>();
   imageDefault = 'https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg';
@@ -31,7 +32,7 @@ export class ImgComponent  implements OnInit, OnChanges, AfterViewInit, OnDestro
 
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges() {
 
     // before - during render
     // evaluando cambios en los inputs, las veces que se actualice el valor
