@@ -4,5 +4,6 @@
   <h2>{{ product.price | currency:'MXN' }}</h2>
   <p>{{ product.title }}</p>
   <p>{{ 'No esperes mas, compralo ahora!' | reverse }}</p>
+  <p appHighlight>{{ product.description }}</p>
   <button (click)="onAddToCart()">Agregar al carrito</button>
 </div>
