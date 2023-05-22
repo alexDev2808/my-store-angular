@@ -1,6 +1,6 @@
 <div>
   <!-- <img [src]="product.image" alt="Img producto" width="200"> -->
-  <app-img [img]="product.image"></app-img>
+  <app-img *ngIf="product.images.length  >  0" [img]="product.images[0]"></app-img>
   <h2>{{ product.price | currency:'MXN' }}</h2>
   <p>{{ product.title }}</p>
   <p>{{ 'No esperes mas, compralo ahora!' | reverse }}</p>
